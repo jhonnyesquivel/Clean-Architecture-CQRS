@@ -12,8 +12,8 @@ using Zemoga_Test.Infrastructure.Persistence;
 namespace ZemogaTest.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230307023609_InitialMigration1")]
-    partial class InitialMigration1
+    [Migration("20230307042759_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
