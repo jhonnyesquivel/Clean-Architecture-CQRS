@@ -49,12 +49,7 @@ public partial class Testing
 
     public static async Task<string> RunAsDefaultUserAsync()
     {
-        return await RunAsUserAsync("test@local", "Testing1234!", Array.Empty<string>());
-    }
-
-    public static async Task<string> RunAsAdministratorAsync()
-    {
-        return await RunAsUserAsync("administrator@local", "Administrator1234!", new[] { "Administrator" });
+        return await RunAsUserAsync("administrator", "Password1!", new[] { "administrator", "writer", "editor", "public" });
     }
 
     public static async Task<string> RunAsUserAsync(string userName, string password, string[] roles)

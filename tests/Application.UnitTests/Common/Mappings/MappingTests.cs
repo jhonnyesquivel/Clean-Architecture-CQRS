@@ -1,10 +1,10 @@
 ﻿using System.Runtime.Serialization;
 using AutoMapper;
 using Zemoga_Test.Application.Common.Mappings;
-using Zemoga_Test.Application.Common.Models;
-using Zemoga_Test.Application.TodoLists.Queries.GetTodos;
 using Zemoga_Test.Domain.Entities;
 using NUnit.Framework;
+using Zemoga_Test.Application.Comments.Queries;
+using Zemoga_Test.Application.Posts.Queries;
 
 namespace Zemoga_Test.Application.UnitTests.Common.Mappings;
 
@@ -28,10 +28,8 @@ public class MappingTests
     }
 
     [Test]
-    [TestCase(typeof(Post), typeof(TodoListDto))]
-    [TestCase(typeof(TodoItem), typeof(TodoItemDto))]
-    [TestCase(typeof(Post), typeof(LookupDto))]
-    [TestCase(typeof(TodoItem), typeof(LookupDto))]
+    [TestCase(typeof(Post), typeof(PostDto))]
+    [TestCase(typeof(Comment), typeof(CommentDto))]
     public void ShouldSupportMappingFromSourceToDestination(Type source, Type destination)
     {
         var instance = GetInstanceOf(source);

@@ -1,63 +1,63 @@
-﻿using Zemoga_Test.Application.TodoLists.Queries.GetTodos;
-using Zemoga_Test.Domain.Entities;
-using Zemoga_Test.Domain.ValueObjects;
-using FluentAssertions;
-using NUnit.Framework;
+﻿//using Zemoga_Test.Application.TodoLists.Queries.GetTodos;
+//using Zemoga_Test.Domain.Entities;
+//using Zemoga_Test.Domain.ValueObjects;
+//using FluentAssertions;
+//using NUnit.Framework;
 
-namespace Zemoga_Test.Application.IntegrationTests.TodoLists.Queries;
+//namespace Zemoga_Test.Application.IntegrationTests.TodoLists.Queries;
 
-using static Testing;
+//using static Testing;
 
-public class GetPostsTests : BaseTestFixture
-{
-    [Test]
-    public async Task ShouldReturnPriorityLevels()
-    {
-        await RunAsDefaultUserAsync();
+//public class GetPostsTests : BaseTestFixture
+//{
+//    [Test]
+//    public async Task ShouldReturnPriorityLevels()
+//    {
+//        await RunAsDefaultUserAsync();
 
-        var query = new GetTodosQuery();
+//        var query = new GetTodosQuery();
 
-        var result = await SendAsync(query);
+//        var result = await SendAsync(query);
 
-        result.PriorityLevels.Should().NotBeEmpty();
-    }
+//        result.PriorityLevels.Should().NotBeEmpty();
+//    }
 
-    [Test]
-    public async Task ShouldReturnAllListsAndItems()
-    {
-        await RunAsDefaultUserAsync();
+//    [Test]
+//    public async Task ShouldReturnAllListsAndItems()
+//    {
+//        await RunAsDefaultUserAsync();
 
-        await AddAsync(new TodoList
-        {
-            Title = "Shopping",
-            Colour = Colour.Blue,
-            Items =
-                    {
-                        new TodoItem { Title = "Apples", Done = true },
-                        new TodoItem { Title = "Milk", Done = true },
-                        new TodoItem { Title = "Bread", Done = true },
-                        new TodoItem { Title = "Toilet paper" },
-                        new TodoItem { Title = "Pasta" },
-                        new TodoItem { Title = "Tissues" },
-                        new TodoItem { Title = "Tuna" }
-                    }
-        });
+//        await AddAsync(new TodoList
+//        {
+//            Title = "Shopping",
+//            Colour = Colour.Blue,
+//            Items =
+//                    {
+//                        new TodoItem { Title = "Apples", Done = true },
+//                        new TodoItem { Title = "Milk", Done = true },
+//                        new TodoItem { Title = "Bread", Done = true },
+//                        new TodoItem { Title = "Toilet paper" },
+//                        new TodoItem { Title = "Pasta" },
+//                        new TodoItem { Title = "Tissues" },
+//                        new TodoItem { Title = "Tuna" }
+//                    }
+//        });
 
-        var query = new GetTodosQuery();
+//        var query = new GetTodosQuery();
 
-        var result = await SendAsync(query);
+//        var result = await SendAsync(query);
 
-        result.Lists.Should().HaveCount(1);
-        result.Lists.First().Items.Should().HaveCount(7);
-    }
+//        result.Lists.Should().HaveCount(1);
+//        result.Lists.First().Items.Should().HaveCount(7);
+//    }
 
-    [Test]
-    public async Task ShouldDenyAnonymousUser()
-    {
-        var query = new GetTodosQuery();
+//    [Test]
+//    public async Task ShouldDenyAnonymousUser()
+//    {
+//        var query = new GetTodosQuery();
 
-        var action = () => SendAsync(query);
+//        var action = () => SendAsync(query);
         
-        await action.Should().ThrowAsync<UnauthorizedAccessException>();
-    }
-}
+//        await action.Should().ThrowAsync<UnauthorizedAccessException>();
+//    }
+//}

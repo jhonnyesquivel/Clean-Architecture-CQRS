@@ -1,6 +1,4 @@
 ﻿using Zemoga_Test.Application.Common.Exceptions;
-using Zemoga_Test.Application.Todopostitems.Commands.CreateTodopostitem;
-using Zemoga_Test.Application.Todopostitems.Commands.UpdateTodopostitem;
 using Zemoga_Test.Domain.Entities;
 using FluentAssertions;
 using NUnit.Framework;
